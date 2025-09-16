@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><!--time spent: 7:29PM to -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tattoos | Home</title>
+    <style>/*--for anti white flicker on first load--*/
+        html, body {
+            margin: 0;
+            overflow-x:hidden;
+            min-height:100vh;
+            background-color:#030303;
+            color:#ffffff;
+        }
+    </style>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="tables.css">
+
+    <!--threejs and lenis imports (CDN for 3d and smooth scrolling | Note that they will not be imported if you reload the page too quickly because of jsdelivr's rate limit. ):-->
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
+                "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/",
+                "lenis": "https://cdn.jsdelivr.net/npm/lenis@1.3.11/+esm"
+            }
+        }
+    </script>
+</head>
+<body>
+    <!--navbar-->
+    <nav>
+        <div style="width:130px;">
+            <a href="index.html" id="logo" alt="Tattoo Studio">Tattoo_Studio</a>
+        </div>
+        <a href="contact.html" class="fade-link">Contact</a>
+        <a href="research.html" class="fade-link">Research</a>
+    </nav>
+
+    <nav class="mobile-nav">
+        <button class="menu-toggle" aria-label="Toggle menu">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" 
+                viewBox="0 0 24 24" stroke="currentColor" width="24" height="24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                    d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+        </button>
+        <ul class="mobile-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="research.html">Research</a></li>
+        </ul>
+    </nav>
+
+    <!--hero section-->
+    
+    <div class="full-image-cover fade-banner">
+        <h1 id="banner-title">Tattoo Studio</h1>
+        <img id="banner-image" src="content/media/bannerimg.webp" alt="Monochrome scene with a laptop with Tattoo Studio's custom branding on it">
+        <p>Tattoo Studio is a <span class="white-highlight">contemporary contemplative comparative complementary compulsory temporary template, tastefully</span> based in Stamford, CT, dedicated to crafting timeless, unique works of art through web development.</p>
+    </div>
+    <!--spacer:--><div style="width:100%; height:100vh;"></div>
+
+    <div id="three-section">
+        <!--text-->
+        <div id="three-text">
+            <h1>Tattoos</h1>
+            <p>Tattoos are a form of body art created by inserting ink into the skin. They have been practiced by cultures around the world for thousands of years, often carrying deep personal, cultural, or spiritual meaning.</p>
+            <h1>History of Tattoos</h1>
+            <p>Tattoos date back to ancient civilizations. Evidence of tattooing has been found on mummies in Egypt and on preserved remains such as Ötzi the Iceman, who lived more than 5,000 years ago. Different cultures have used tattoos to symbolize identity, protection, or rites of passage.</p>
+            <h1>Modern Tattoo Styles</h1>
+            <p>Today, tattoos are not only cultural markers but also forms of self-expression and art. Artists specialize in many different styles</p>
+            <h1>Popular tattoo styles include:</h1>
+            <ul style="list-style-type: none;">
+                                <li>Traditional (bold lines, simple colors)</li>
+                               <li>Realism (lifelike portraits and details)</li>
+                             <li>Tribal (patterns based on ancient designs)</li>
+                   <li>Watercolor (soft blending of colors like a painting)</li>
+                            <li>Minimalist (simple lines and small designs)</li>
+            </ul>
+            <h1>Health and Safety</h1>
+            <p>Getting a tattoo is generally safe when done by a professional artist who follows proper hygiene. However, risks include infection, allergic reactions, or regret if the tattoo no longer feels meaningful</p>
+            <h1>Famous Tattooed Figures</h1>
+            <p>Tattoos have been embraced by many public figures and celebrities, helping normalize body art in mainstream culture. Athletes, musicians, and actors often showcase tattoos as part of their identity and image.</p>
+        </div>
+
+        
+        <div id="canvas-target"></div><!--[  <<-- 3d model  ]-->
+    </div>
+    
+
+    <!--table-->
+    <section class="table-area">
+
+        <h1 id="black-intersection">Tattoo Styles Table</h1>
+        <p>Here is a table showing a few styles of tattoos and their characteristics:</p>
+
+        <table>
+            <tbody>
+                <tr>
+                    <th>
+                        <p class="table-heading">Style</p>
+                    </th>
+                    <th>
+                        <p class="table-heading">Origin/Influence</p>
+                    </th>
+                    <th>
+                        <p class="table-heading">Key Features</p>
+                    </th>
+                </tr>
+                <tr>
+                    <td>Traditional</td><td>Western Sailors</td><td>Bold lines, solid colors</td>
+                </tr>
+                <tr>
+                    <td>Tribal</td><td>Polynesian</td><td>Patterns, black ink, symbolism</td>
+                </tr>
+                <tr>
+                    <td>Realism</td><td>Modern</td><td>Portraits, shading, lifelike detail</td>
+                </tr>
+                <tr>
+                    <td>Watercolor</td><td>Contemporary</td><td>Blended colors, brushstroke effect</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </section>
+
+    <section class="s-2">
+        <h1>Considering Your First Tattoo</h1>
+        <p>If you are thinking of getting a tattoo, it’s important to choose a design that is meaningful to you, research professional artists, and understand the long-term commitment. Tattoos can be removed, but the process is costly and uncomfortable</p>
+
+        <div id="gallery-content">
+            <div>
+                <div>
+                <img src="content/media/partial-view-of-tattoo-artist-in-gloves-working-on-2024-11-17-10-37-58-utc.webp" class="img-border-right" alt="Partial view of tattoo artist in gloves working on an arm">
+                <img src="https://pub-d5248ecedccf4da6ad39e4b0750001ba.r2.dev/webdev2-tattoo-cybersigil_back.png" class="img-border-all n-b-b" loading="lazy" alt="The back of someone with a large and complex tattoo">
+                
+                <div class="col-2 bg-alt">
+                    <img src="https://pub-d5248ecedccf4da6ad39e4b0750001ba.r2.dev/webdev2-tattoo-back_cybersigil.jpg" class="img-border-all" loading="lazy" alt="someone with a large cybersigil angel pattern tattoo showing their back">
+                    <img src="https://pub-d5248ecedccf4da6ad39e4b0750001ba.r2.dev/webdev2-tattoo-arm_cybersigil.jpg" class="img-border-all" loading="lazy" alt="tattooed arm with an otherworldly structure">
+                </div>
+                </div>
+
+                <div class="bg-alt">
+                    <img src="content/media/cropped-view-of-long-haired-model-with-tattoo-on-b-2024-11-07-16-01-22-utc.webp" loading="lazy" alt="Long haired shirtless man with tattoos on his stomach, chest, and shoulders">
+                    
+                    <div class="col-2">
+                        <div>
+                            <img src="content/media/portrait-of-shirtless-tattooed-bearded-male-and-b-2025-01-26-11-14-24-utc.webp" class="img-border-all n-b-b" alt="portriate of tattooed bearded male and woman">
+                            <img src="content/media/painted-to-perfection-a-cropped-shot-of-a-tattooe-2025-04-06-12-29-54-utc.webp" class="img-border-all" alt="woman with full back and arms of tattoos">
+                            <img src="https://pub-d5248ecedccf4da6ad39e4b0750001ba.r2.dev/webdev2-tattoo-hand_cybersigil.jpg" class="img-border-all n-b-t" loading="lazy" alt="Woman's tattooed hand with long nails">
+                        </div>
+                        
+                        <div>
+                            <img src="content/media/vibrant-young-woman-showcasing-edgy-fashion-and-bo-2025-04-15-22-25-01-utc.webp" class="img-border-all n-b-r" alt="Woman with hands on head showing tattoos on shoulders and arm">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-alt">
+                    <img src="https://pub-d5248ecedccf4da6ad39e4b0750001ba.r2.dev/webdev2-tattoobanner-unsplash.webp" class="img-border-left" loading="lazy" alt="Long tattooed arm">
+                    <img src="content/media/portrait-of-mid-adult-woman-with-floral-tattooed-a-2025-04-04-05-49-15-utc.webp" class="img-border-left mt-20" alt="woman covering eyes with arm that has colorful tattoos">
+                </div>
+            </div>
+        </div>
+
+        
+
+         <div class="form-container">
+            <h2>Tattoo Interest Form</h2>
+            <form>
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input id="name" type="text" name="name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input id="email" type="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label>Do you already have a tattoo?</label>
+                <div class="radio-group">
+                <label><input type="radio" name="tattoo" value="yes"> Yes</label>
+                <label><input type="radio" name="tattoo" value="no"> No</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="style">What style of tattoo interests you the most?</label>
+                <input id="style" type="text" name="style">
+            </div>
+
+            <button type="submit">Submit</button>
+            </form>
+        </div>
+
+    </section>
+
+    
+    <script src="script.js"></script>
+    <script src="lenis.js" type="module"></script>
+    <script src="three.js" type="module"></script>
+</body>
+</html>

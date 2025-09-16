@@ -1,0 +1,417 @@
+html, body {
+    margin: 0;
+    overflow-x:hidden;
+    min-height:calc(100vh + 80px);
+    background-color:#030303;
+    color:#ffffff;
+    font-family:"geist", Arial;
+}
+:root{
+    --background:#030303;
+    --foreground:#ffffff;
+    --lower-emphasis:#5e5e5e;
+}
+@font-face {
+  font-family: "geist-mono"; 
+  src: url("/content/fonts/geist-mono.woff2") format("woff2");
+}
+@font-face {
+  font-family: "geist"; 
+  src: url("/content/fonts/geist.woff2") format("woff2");
+}
+
+/*-- ***Content Styling --*/
+h1{
+    font-family:"geist-mono", monospace;
+    font-size:2rem;
+    font-weight:400;
+}
+a{
+    text-decoration: none;
+    color:var(--foreground);
+    position:relative;
+    display:inline-block;
+    font-family:"geist", Arial;
+}
+a::after{
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 0;
+  background-color: var(--lower-emphasis);
+  opacity: 0.3;
+  transition: height 0.3s ease;
+  z-index: 0;
+}
+a:hover::after {
+  height: 100%;
+}
+#logo{
+    font-family:"geist-mono", monospace;
+}
+/* ***NAV*/
+nav{
+    width:100%;
+    height:60px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position:fixed;
+    top:0;
+    background-color: transparent; /* start transparent */
+    transition: background-color 0.2s ease;
+    z-index:99;
+}
+nav.scrolled {
+  background-color: var(--background); /* or var(--background) */
+}
+nav.scrolled.black{
+    background-color:black;
+}
+.mobile-nav {
+  display: none;
+}
+.mobile-nav ul{
+    list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 1rem;
+}
+@media (max-width: 500px) {
+  nav:not(.mobile-nav) {
+    display: none !important;
+  }
+  .mobile-nav {
+    display: flex;
+    background: var(--background);
+    padding: 1rem;
+    position: absolute;
+    height:23px;
+  }
+
+  .mobile-nav .menu-toggle {
+    background: transparent;
+    border: none;
+    color: var(--foreground);
+    position: absolute;
+    top: 1rem;
+    right: 2rem;
+    cursor: pointer;
+  }
+
+  .mobile-nav ul.mobile-links {
+    display: none;
+    flex-direction: column;
+    margin-top: 3rem;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .mobile-nav.open ul.mobile-links {
+    display: flex;
+  }
+  .mobile-nav.open{
+    background-color:var(--background);
+        height:150px;
+  }
+}
+
+/* (end nav) */
+#banner-title{
+    font-family:"geist", Helvetica;
+    font-size:5rem;
+    font-weight:400;
+    position:absolute;
+    left:30px;
+    top:80px;
+    z-index: 2;
+}
+.full-image-cover p{
+    z-index: 2;
+    position:absolute;
+    left:30px;
+    top:calc(100vh - 160px);
+    width:400px;
+    height:110px;
+    font-family:"geist", Arial;
+}
+.white-highlight{
+    background-color:var(--foreground);
+    color:var(--background);
+}
+.full-image-cover {
+    position:absolute;
+    top:0;
+    z-index:0;
+  width: 100%;
+  height: 100vh;      /* or any height you need */
+  overflow: hidden;   /* hides overflow edges */
+}
+.full-image-cover::after {
+  content: "";
+  position: absolute;
+  inset: 0; /* shorthand for top/right/bottom/left:0 */
+  background: linear-gradient(
+    to bottom right,
+    rgba(0, 0, 0, 0.85),   /* top-left darker */
+    rgba(0, 0, 0, 0)      /* bottom-right transparent */
+  );
+  pointer-events: none; /* don’t block clicks */
+  z-index: 1; /* gradient above img */
+}
+.full-image-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;  /* fills container, keeps aspect */
+  object-position: center; /* center the crop */
+  display: block;     /* removes inline gaps */
+    z-index: 0;
+}
+/*-*/
+/*-- ***three section  --*/
+
+#three-section {
+  position: relative;
+  height: 300vh; /* tall enough for scrolling */
+}
+#three-section::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  height: 1000px; /* covers the bottom fade zone */
+  pointer-events: none; /* don't block interactions */
+
+  /* fade from transparent (at ~1000px above bottom) 
+     to solid background (at 500px above bottom → bottom) */
+  background: linear-gradient(
+    to bottom,
+    rgb(0, 0, 0, 0) 0%,
+    rgb(0, 0, 0, 0.5) 20%,
+    rgb(0, 0, 0, 1) 50%,
+    black 100%
+  );
+}
+/* canvas stays pinned behind */
+#canvas-target {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 0;
+}
+
+/*--new--*/
+#three-section p, #three-section h1{
+    margin:30px;
+    max-width:500px;
+    width:50%;
+    min-width:250px;
+    margin-bottom:10px;
+    margin-top:10px;
+}
+/* text scrolls on top of canvas */
+#three-text {
+  position: absolute;   /* overlay on top */
+  top: 0;               /* anchor at start of parent */
+  left: 50%;
+  transform: translateX(-50%); /* center horizontally */
+  width: 70%;
+  z-index: 1;           /* above canvas */
+  line-height:2;
+  font-size:larger;
+}
+
+        /* Pattern: 1st & 2nd left, 3rd & 4th right, 5th & 6th left, etc. */
+        #three-text > *:nth-child(4n+1),  /* 1st, 5th, 9th, etc. */
+        #three-text > *:nth-child(4n+2) { /* 2nd, 6th, 10th, etc. */
+            text-align: left;
+            margin-right: auto;
+        }
+
+        #three-text > *:nth-child(4n+3),  /* 3rd, 7th, 11th, etc. */
+        #three-text > *:nth-child(4n+4) { /* 4th, 8th, 12th, etc. */
+            text-align: right;
+            margin-left: auto;
+        }
+
+
+section{
+    background-color:black;
+}
+
+
+
+/* ***Form styling */
+.form-container {
+      background: transparent;
+      padding: 2rem;
+      width: calc(100% - 64px);
+      max-width:900px;
+      margin:auto;
+    }
+
+    .form-container h2 {
+      margin-bottom: 1rem;
+      border-bottom: 2px solid var(--lower-emphasis);
+      padding-bottom: .5rem;
+      font-size: 1.5rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+      color: var(--foreground) !important;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      width: 100%;
+      padding: 0.6rem;
+      border: 1px solid var(--lower-emphasis);
+      border-radius: 8px;
+      font-size: 1rem;
+      color: var(--foreground);
+      background: var(--background);
+    }
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      box-sizing: border-box;
+    }
+
+    .radio-group {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 0.3rem;
+    }
+
+    .radio-group label {
+      font-weight: normal;
+      color: var(--lower-emphasis);
+      cursor: pointer;
+    }
+
+    input[type="radio"] {
+      margin-right: 0.3rem;
+      accent-color: var(--foreground);
+    }
+
+ .form-container button {
+  background: var(--foreground);
+  color: var(--background);
+  border: none;
+  padding: 0.7rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+.form-container button:hover {
+  box-shadow: 0 0px 12px var(--foreground);
+}
+
+.article-content{
+  width:70%;
+  margin:auto;
+  padding-bottom:40px;
+}
+
+.article-content a{
+  text-decoration: underline;
+}
+.article-content img{
+  display:block;
+  width:100%;
+}
+.b-tb{
+  border-top:1px solid var(--foreground);
+  border-bottom:1px solid var(--foreground);
+  width:calc(100% - 60px);
+}
+
+/* ***Link fading in on first load CSS*/
+
+/* Link fade-in */
+.fade-link {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeInLink 0.6s ease forwards;
+}
+
+.fade-link:nth-of-type(1) { animation-delay: 0.2s; } /* Contact */
+.fade-link:nth-of-type(2) { animation-delay: 0.4s; } /* Research */
+
+
+@keyframes fadeInLink {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Banner container fade-in */
+.fade-banner {
+  opacity: 0;
+  transform: scale(1.05); /* slightly zoomed in */
+  animation: fadeInBanner 1s ease forwards;
+  animation-delay: 0.6s; /* starts after nav links */
+}
+
+@keyframes fadeInBanner {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Disable animations on subsequent visits */
+.no-fade .fade-link,
+.no-fade .fade-banner {
+  opacity: 1;
+  transform: none;
+  animation: none !important;
+}
+
+/* ------------------------------------------- ***screen widths ---------------------*/
+@media (max-width: 999px) {
+  #banner-title{
+    text-align:center;
+    left:0px;
+    width:100%;
+  }
+  #three-section p, #three-section h1, #three-section ul{
+    width:100%;
+    max-width:none;
+    text-align:left !important;
+    margin:30px !important;
+    padding-left:0px;
+  }
+}
+@media (max-width: 799px){
+  #banner-title{
+    font-size: clamp(36px, 8vw, 60px);
+  }
+  #three-text{
+    width:90%;
+  }
+  .form-container h2, .form-container label{
+    background-color:var(--background);
+  }
+  .article-content{
+    width:90%;
+  }
+}

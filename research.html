@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><!--time spent: 7:29PM to -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tattoos | Home</title>
+    <style>/*--for anti white flicker on first load--*/
+        html, body {
+            margin: 0;
+            overflow-x:hidden;
+            min-height:100vh;
+            background-color:#030303;
+            color:#ffffff;
+        }
+    </style>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="tables.css">
+
+    <script type="importmap">
+        {
+            "imports": {
+                "lenis": "https://cdn.jsdelivr.net/npm/lenis@1.3.11/+esm",
+                "d3": "https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm"
+            }
+        }
+    </script>
+</head>
+<body>
+    <!--navbar-->
+    <nav>
+        <div style="width:130px;">
+            <a href="index.html" id="logo" alt="Tattoo Studio">Tattoo_Studio</a>
+        </div>
+        <a href="contact.html" class="fade-link">Contact</a>
+        <a href="research.html" class="fade-link">Research</a>
+    </nav>
+
+        <nav class="mobile-nav">
+        <button class="menu-toggle" aria-label="Toggle menu">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" 
+                viewBox="0 0 24 24" stroke="currentColor" width="24" height="24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                    d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+        </button>
+        <ul class="mobile-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="research.html">Research</a></li>
+        </ul>
+    </nav>
+
+    <h1 id="banner-title" class="b-tb">Research</h1>
+
+
+
+    <!--spacer:--><div style="width:100%; height:300px;"></div>
+    <div class="article-content">
+        <img src="https://pub-d5248ecedccf4da6ad39e4b0750001ba.r2.dev/benjamin-lehman-5t4qCgtaLGU-unsplash.webp" loading="lazy">
+
+        <h1>Health Risks</h1>
+        <p>Findings from a <a href="https://www.thelancet.com/journals/eclinm/article/PIIS2589-5370(24)00228-1/fulltext">case control study</a> trying to identify cases of malignant lymphoma associated with tattooed individuals suggests there is a 21% higher adjusted risk (not to be confused with a 21% chance) of overall lymphoma. This is because the carcinogenic chemicals in tattoo ink get deposited to the lymph nodes.<br>Despite this, <a href="https://www.health.harvard.edu/blog/do-tattoos-cause-lymphoma-202407193059">Harvard Health</a> suggests that the lack of a link between size or number of tattoos and having increased lymphoma risk works against the claim. Harvard also suggests that as the rate of tattoed individuals increases, lymphoma does not correlate closely enough.
+        <br>However, Harvard does acknowledge other health risks, such as infections, viral hepatitus, allergic reactions, scarring, and skin cancer.</p>
+
+        <br>
+        <h1>Statistics</h1>
+        <p>According to <a href="https://pewrsr.ch/3QFg5w1">Pew Research Center</a>, nearly a third of Americans have a tattoo, with 22% having more than one.</p>
+
+        <table>
+            <tr>
+                <th>Category</th>
+                <th>Details</th>
+            </tr>
+            <tr>
+                <td>Gender</td>
+                <td>"38% of women have at least one tattoo, compared with 27% of men. This includes 56% of women ages 18 to 29 and 53% of women ages 30 to 49."</td>
+            </tr>
+            <tr>
+                <td>Race and ethnicity</td>
+                <td>"39% of Black Americans have a tattoo, compared with 35% of Hispanic, 32% of White and 14% of Asian Americans."</td>
+            </tr>
+            <tr>
+                <td>Age</td>
+                <td>
+                    <div id="chart"></div>
+                </td>
+            </tr>
+            <tr>
+                <td>Education</td>
+                <td>"37% of those with some college or less education have a tattoo, compared with 24% of those with a bachelor’s degree and 21% of those with a postgraduate degree."</td>
+            </tr>
+            <tr>
+                <td>Income</td>
+                <td>"43% of lower-income adults have a tattoo, compared with 31% of those in middle-income households and 21% of those in upper-income households."</td>
+            </tr>
+            <tr>
+                <td>Is Religious</td>
+                <td>"41% of religiously unaffiliated adults have at least one tattoo, compared with 29% of those who are affiliated with a religion."</td>
+            </tr>
+            <tr>
+                <td>Sexual orientation</td>
+                <td>"Around half of lesbian, gay or bisexual Americans (51%) have at least one tattoo. The share is especially high among women in this group: 68% are tattooed, including 55% who have more than one tattoo. By comparison, 31% of straight Americans have at least one tattoo."</td>
+            </tr>
+            <tr>
+                <td>Regret</td>
+                <td>"24% of Americans say they regret getting one of their tattoos."</td>
+            </tr>
+            <tr>
+                <td>Other findings</td>
+                <td>"There are no major differences by political party or whether Americans live in an urban, suburban or rural community. A third of Democrats and Democratic-leaning independents have a tattoo, as do 32% of Republicans and Republican leaners. And roughly a third of adults across urban, suburban and rural areas report having a tattoo. There are no differences between veterans and non-veterans, either."</td>
+            </tr>
+            </table>
+            <br>
+            <h1>Tattoo Artists</h1>
+            <p><a href="https://www.zippia.com/tattoo-artist-jobs/demographics/">Zippia's</a> data science team found the following about tattoo artists:</p>
+            <ul>
+                <li>There are over <b>6,382</b> tattoo artists currently employed in the United States.</li>
+                <li>25.0% of all tattoo artists are women, while <b>75.0% are men.</b></li>
+                <li>The average tattoo artist age is <b>42</b> years old.</li>
+                <li>The most common ethnicity of tattoo artists is White (57.4%), followed by Hispanic or Latino (20.0%), Black or African American (9.3%) and Unknown (6.4%).</li>
+                <li>In 2022, women earned 97% of what men earned.</li>
+                <li>6% of all tattoo artists are LGBT.</li>
+                <li>Tattoo artists are 91% more likely to work at private companies in comparison to public companies.</li>
+            </ul>
+
+    </div>
+
+
+    
+    <script src="script.js"></script>
+    <script src="lenis.js" type="module"></script>
+    <script src="d3.js" type="module"></script>
+</body>
+</html>
