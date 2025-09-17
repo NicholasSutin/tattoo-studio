@@ -12,9 +12,9 @@
             margin: 0;
             padding: 0;
             width: 100%;
-            height: calc(100vh - 80px);
-            max-height:calc(100vh - 80px);
-            overflow-x: hidden; 
+            height: 100vh;
+            max-height:100vh;
+            overflow: hidden; 
             display: flex; /* enable flexbox */
             justify-content: center; /* horizontal center */
             align-items: center;     /* vertical center */
@@ -22,6 +22,12 @@
             background-size: cover;
             color: #ffffff;
             background-color: #030303;
+        }
+        @media (max-width: 799px){
+            height: calc(100vh - 80px);
+            max-height:calc(100vh - 80px);
+            overflow:auto;
+            overflow-x: hidden; 
         }
     </style>
 
