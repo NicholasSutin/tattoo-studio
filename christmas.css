@@ -4,7 +4,7 @@ html, body {
     min-height:calc(100vh + 80px);
     background-color:#004e15;
     color:#ffb3b3;
-    font-family:"geist", Arial;
+    font-family:"Christmas", Arial;
 }
 :root{
     --background:#004e15;
@@ -23,7 +23,10 @@ html, body {
   font-family: "geist"; 
   src: url("/content/fonts/geist.woff2") format("woff2");
 }
-
+@font-face {
+  font-family: "Christmas"; 
+  src: url("/content/fonts/ChristmasShaky.ttf") format("TrueType");
+}
 /*-- ***Content Styling --*/
 h1{
     font-family:"geist-mono", monospace;
@@ -35,7 +38,7 @@ a{
     color:var(--foreground);
     position:relative;
     display:inline-block;
-    font-family:"geist", Arial;
+    font-family:"Christmas", Arial;
 }
 a::after{
   content: '';
@@ -125,7 +128,7 @@ nav.scrolled.black{
 
 /* (end nav) */
 #banner-title{
-    font-family:"geist", Helvetica;
+    font-family:"Christmas", Helvetica;
     font-size:5rem;
     font-weight:400;
     position:absolute;
@@ -140,7 +143,7 @@ nav.scrolled.black{
     top:calc(100vh - 160px);
     width:400px;
     height:110px;
-    font-family:"geist", Arial;
+    font-family:"Christmas", Arial;
 }
 .white-highlight{
     background-color:var(--foreground);

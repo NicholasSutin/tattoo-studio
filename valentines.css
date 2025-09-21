@@ -4,7 +4,7 @@ html, body {
     min-height:calc(100vh + 80px);
     background-color:#931347;
     color:#ff3dfc;
-    font-family:"geist", Arial;
+    font-family:"Love", Arial;
 }/*--valentines day--*/
 :root{
     --background:#931347;
@@ -23,7 +23,10 @@ html, body {
   font-family: "geist"; 
   src: url("/content/fonts/geist.woff2") format("woff2");
 }
-
+@font-face {
+  font-family: "Love"; 
+  src: url("/content/fonts/LoveHouse.otf") format("OpenType");
+}
 /*-- ***Content Styling --*/
 h1{
     font-family:"geist-mono", monospace;
@@ -125,7 +128,7 @@ nav.scrolled.black{
 
 /* (end nav) */
 #banner-title{
-    font-family:"geist", Helvetica;
+    font-family:"Love", Helvetica;
     font-size:5rem;
     font-weight:400;
     position:absolute;
@@ -140,7 +143,7 @@ nav.scrolled.black{
     top:calc(100vh - 160px);
     width:400px;
     height:110px;
-    font-family:"geist", Arial;
+    font-family:"Love", Arial;
 }
 .white-highlight{
     background-color:var(--foreground);
