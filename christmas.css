@@ -2,15 +2,18 @@ html, body {
     margin: 0;
     overflow-x:hidden;
     min-height:calc(100vh + 80px);
-    background-color:#030303;
-    color:#ffffff;
+    background-color:#004e15;
+    color:#ffb3b3;
     font-family:"geist", Arial;
 }
 :root{
-    --background:#030303;
-    --foreground:#ffffff;
-    --lower-emphasis:#5e5e5e;
+    --background:#004e15;
+    --foreground:#ffb3b3;
+    --lower-emphasis:#906161;
     --blacK:black;
+}
+#gallery-content *{
+    border-color:var(--background);
 }
 @font-face {
   font-family: "geist-mono"; 
@@ -69,7 +72,7 @@ nav.scrolled {
   background-color: var(--background); /* or var(--background) */
 }
 nav.scrolled.black{
-    background-color:black;
+    background-color:#004e15;
 }
 .mobile-nav {
   display: none;
