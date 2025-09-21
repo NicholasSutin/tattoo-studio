@@ -6,29 +6,33 @@
     <title>Tattoos | Home</title>
 
     <link rel="stylesheet" href="tables.css">
-    <style>
+  <style>
         html, body {
             margin: 0;
             padding: 0;
             width: 100%;
             height: 100vh;
-            max-height:100vh;
+            max-height: 100vh;
             overflow: hidden; 
             display: flex; /* enable flexbox */
             justify-content: center; /* horizontal center */
-            align-items: center;     /* vertical center */
+            align-items: center; /* vertical center */
             background: url("content/media/sigilexport.png") no-repeat center center fixed;
             background-size: cover;
         }
-        @media (max-width: 799px){
-            height: calc(100vh - 80px);
-            max-height:calc(100vh - 80px);
-            overflow:auto;
-            overflow-x: hidden; 
-        })}
+        
+        @media (max-width: 799px) {
+            body {
+                height: calc(100vh - 80px);
+                max-height: calc(100vh - 80px);
+                overflow: auto;
+                overflow-x: hidden; 
+            }
+        }
     </style>
-        <link rel="stylesheet" href="styles.css">
-    <!--link rel="stylesheet" href="christmas.css"-->
+    
+    <link rel="stylesheet" href="styles.css">
+    <!--<link rel="stylesheet" href="christmas.css"-->
     <!--link rel="stylesheet" href="newyear.css"-->
     <!--link rel="stylesheet" href="valentines.css"-->
 </head>
